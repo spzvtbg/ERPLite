@@ -9,4 +9,5 @@
   <Project Path="ERPLite.Users.Domain/ERPLite.Users.Domain.csproj" Id="5c3e8e06-db99-4de6-bcec-7f42473a3d3c" />
   <Project Path="ERPLite.Users.Infrastructure/ERPLite.Users.Infrastructure.csproj" Id="3b9fe4c2-5b60-45a1-a44c-275545ab8198" />
   <Project Path="ERPLite.Users/ERPLite.Users.csproj" />
+  <Project Path="ERPLite.Validation.Abstraction/ERPLite.Validation.Abstraction.csproj" Id="cf2e1202-f030-44cd-88f5-e6153f99f4d6" />
 </Solution>

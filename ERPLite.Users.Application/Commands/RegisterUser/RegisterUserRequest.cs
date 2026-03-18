@@ -1,4 +1,4 @@
-﻿namespace ERPLite.Users.Application.UseCases.RegisterUser
+﻿namespace ERPLite.Users.Application.Commans.RegisterUser
 {
     public class RegisterUserRequest
     {

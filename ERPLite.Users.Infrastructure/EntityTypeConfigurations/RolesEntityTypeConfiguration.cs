@@ -5,6 +5,8 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
+    using System;
+
     /// <summary>
     /// Defines the entity type configuration for the <see cref="Role"/> entity,
     /// </summary>
@@ -62,6 +64,14 @@
                 // the check constraint "CK_Users_Name" ensures that the Name property has a minimum length of 2 characters
                 _ = x.HasCheckConstraint("CK_Roles_Name", "LEN(Name) >= 2");
             });
+
+            // Seeding initial data for the Roles entity
+            _ = role.HasData(
+                new Role
+                {
+                    Id = new Guid("a01eb327-d8de-43fd-b21b-d44688e827de"),
+                    Name = "Admin",
+                });
         }
     }
 }

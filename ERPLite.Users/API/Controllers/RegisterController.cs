@@ -1,6 +1,6 @@
 ﻿namespace ERPLite.Users.API.Controllers
 {
-    using ERPLite.Users.Application.UseCases.RegisterUser;
+    using ERPLite.Users.Application.Commans.RegisterUser;
 
     using Microsoft.AspNetCore.Mvc;
 

@@ -5,6 +5,8 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
+    using System;
+
     /// <summary>
     /// Defines the entity type configuration for the <see cref="User"/> entity, 
     /// specifying how it should be mapped to the database schema.
@@ -54,8 +56,8 @@
 
             _ = user
                 .Property(u => u.Password)
-                // the Password property is stored as SHA512 hash and has a maximum length of 64 characters
-                .HasMaxLength(64)
+                // the Password property is stored as SHA512 hash and has a maximum length of 128 hex characters
+                .HasMaxLength(128)
                 // the Password property is required and cannot be null
                 .IsRequired();
 
@@ -102,9 +104,21 @@
                 // the check constraint "CK_Users_Username" ensures that the Username property has a minimum length of 5 characters
                 _ = x.HasCheckConstraint("CK_Users_Username", "LEN(Username) >= 5");
 
-                // the check constraint "CK_Users_Password" ensures that the Password property has a length of exactly 64 characters, which is the expected length for a SHA512 hash
-                _ = x.HasCheckConstraint("CK_Users_Password", "LEN(Password) = 64");
+                // the check constraint "CK_Users_Password" ensures that the Password property has a
+                // length of exactly 128 hex characters, which is the expected length for a SHA512 hash
+                _ = x.HasCheckConstraint("CK_Users_Password", "LEN(Password) = 128");
             });
+
+            // Seed data configuration for the User entity
+            _ = user.HasData(
+                new User
+                {
+                    Id = new Guid("8545b412-69ab-4a15-97d1-193b61d68507"),
+                    Name = "Super User",
+                    Email = "noreply@admin.info",
+                    Username = "admin",
+                    Password = "!QAYxsw2".HashSHA512(),
+                });
         }
     }
 }

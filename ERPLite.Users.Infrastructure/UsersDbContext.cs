@@ -23,6 +23,11 @@
         public DbSet<Role> Roels { get; set; }
 
         /// <summary>
+        /// Resources table in the database, representing the collection of resource entities.
+        /// </summary>
+        public DbSet<Resource> Resources { get; set; }
+
+        /// <summary>
         /// Fallback configuration method that will be called if the context is not configured externally.
         /// </summary>
         /// <param name="optionsBuilder"></param>
@@ -66,6 +71,8 @@
                 // Apply the entity type configurations for the Users entity, defining how they map to the database schema.
                 .ApplyConfiguration(new UsersEntityTypeConfiguration())
                 // Apply the entity type configurations for the Roles entity, defining how they map to the database schema.
-                .ApplyConfiguration(new RolesEntityTypeConfiguration());
+                .ApplyConfiguration(new RolesEntityTypeConfiguration())
+                // Apply the entity type configurations for the Resource entity, defining how they map to the database schema.
+                .ApplyConfiguration(new ResourceEntityTypeConfiguration());
     }
 }

@@ -4,6 +4,7 @@ using ERPLite.Users.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ERPLite.Users.Infrastructure.Migrations
 {
     [DbContext(typeof(UsersDbContext))]
-    partial class UsersDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260318164633_UsersPasswordLength128")]
+    partial class UsersPasswordLength128
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,13 +90,6 @@ namespace ERPLite.Users.Infrastructure.Migrations
                         {
                             t.HasCheckConstraint("CK_Roles_Name", "LEN(Name) >= 2");
                         });
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("a01eb327-d8de-43fd-b21b-d44688e827de"),
-                            Name = "Admin"
-                        });
                 });
 
             modelBuilder.Entity("ERPLite.Users.Domain.Entities.User", b =>
@@ -150,16 +146,6 @@ namespace ERPLite.Users.Infrastructure.Migrations
                             t.HasCheckConstraint("CK_Users_Password", "LEN(Password) = 128");
 
                             t.HasCheckConstraint("CK_Users_Username", "LEN(Username) >= 5");
-                        });
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("8545b412-69ab-4a15-97d1-193b61d68507"),
-                            Email = "noreply@admin.info",
-                            Name = "Super User",
-                            Password = "FB539A1B5A7880B8AC7D0D37F57F51C3065344A4402B553586CBA7B29E8168EB9BF94A24E6AB9F76364FDE904E4D03561A715F4BFF14A37AC5D1F9F7C1D7C3D4",
-                            Username = "admin"
                         });
                 });
 #pragma warning restore 612, 618

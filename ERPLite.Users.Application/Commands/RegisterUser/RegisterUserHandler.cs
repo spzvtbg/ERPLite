@@ -1,6 +1,6 @@
-﻿namespace ERPLite.Users.Application.UseCases.RegisterUser
+﻿namespace ERPLite.Users.Application.Commans.RegisterUser
 {
-    using FluentValidation;
+    using ERPLite.Users.Domain.Interfaces;
 
     using System.Threading.Tasks;
 
