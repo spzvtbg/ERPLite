@@ -15,6 +15,7 @@
         [HttpPost]
         public async Task<IActionResult> Post(RegisterUserRequest reguest)
         {
+            var lang = this.Request.Headers["Accept-Language"].ToString();
             var response = await this.registerUserHandler.HandleAsync(reguest);
 
             return this.Ok(response);

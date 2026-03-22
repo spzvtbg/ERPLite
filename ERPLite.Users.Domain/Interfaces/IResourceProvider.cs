@@ -6,7 +6,7 @@
     /// Provides validation messages for the application. 
     /// This interface defines a contract for retrieving validation messages based on language and message name.
     /// </summary>
-    public interface IValidationMessageProvider
+    public interface IResourceProvider
     {
         /// <summary>
         /// Gets or adds a validation message for the specified language and message name.

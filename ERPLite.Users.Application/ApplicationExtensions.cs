@@ -14,7 +14,7 @@
         {
             _ = services
                 .AddValidators()
-                .AddTransient<IValidationMessageProvider, DbValidationMessageProvider>()
+                .AddTransient<IResourceProvider, DbResourceProvider>()
                 .AddTransient<RegisterUserHandler>();
 
             return services;

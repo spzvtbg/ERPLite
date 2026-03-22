@@ -5,16 +5,23 @@
 
     using System.Threading.Tasks;
 
-    public class RegisterUserValidator(IValidationMessageProvider validationMessageProvider) : IValidator<RegisterUserRequest>
+    public class RegisterUserValidator(IResourceProvider resourceProvider) : IValidator<RegisterUserRequest>
     {
-        private readonly IValidationMessageProvider validationMessageProvider = validationMessageProvider;
+        private readonly IResourceProvider resourceProvider = resourceProvider;
 
-        public Task<ValidationResult> ValidateAsync(RegisterUserRequest model)
+        public async Task<ValidationResult> ValidateAsync(RegisterUserRequest model)
         {
             var validationResult = new ValidationResult();
 
+            if (model == null)
+            {
+                validationResult.IsValid = false;
+                validationResult.ErrorMessage = await this.resourceProvider
+                    .MessageForAsync("en", $"{nameof(RegisterUserRequest)}CannotBeNull");
+            }
 
-            return Task.FromResult(validationResult);
+
+            return validationResult;
         }
     }
 }

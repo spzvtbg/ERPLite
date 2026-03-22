@@ -9,7 +9,7 @@ Additionally, set up the necessary configurations for Entity Framework Core to m
 	- [x] Name - users name, required unicode text field in range 2 - 200 charachters.
 	- [x] Email - users email, required unicode text field in range 5 - 500 charachters, unique with valid email format.
 	- [x] Username - users username, required unicode text field in range 5 - 50 charachters, unique for each user.
-	- [x] Password - users password stored as SHA512 hash, text field in range 8 - 128 charachters, required text field with 64 charachters
+	- [x] Password - users password stored as SHA512 hash, text field whit length 128 charachters, required text field with 64 charachters
 	
 2. **Role Entity definition**
 	- [x] Id - roles uniqueidentifier, requerd, primary key with auto insert.
