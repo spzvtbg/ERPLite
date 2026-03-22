@@ -35,6 +35,7 @@ namespace ERPLite.Users
 
             var app = builder.Build();
             _ = app.MapControllers();   
+            _ = app.UseRequestLocalization();
 
             app.Run();
         }

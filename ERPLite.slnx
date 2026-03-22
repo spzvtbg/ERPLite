@@ -5,6 +5,7 @@
     <File Path="LICENSE.txt" />
     <File Path="README.md" />
   </Folder>
+  <Project Path="ERPLite.Localization/ERPLite.Localization.csproj" Id="c76223ec-2aa5-451a-876e-15e7adc01abb" />
   <Project Path="ERPLite.Users.Application/ERPLite.Users.Application.csproj" Id="fafaba42-c182-4d84-9761-ede43665e5e9" />
   <Project Path="ERPLite.Users.Domain/ERPLite.Users.Domain.csproj" Id="5c3e8e06-db99-4de6-bcec-7f42473a3d3c" />
   <Project Path="ERPLite.Users.Infrastructure/ERPLite.Users.Infrastructure.csproj" Id="3b9fe4c2-5b60-45a1-a44c-275545ab8198" />
